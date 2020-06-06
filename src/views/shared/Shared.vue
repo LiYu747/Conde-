@@ -7,22 +7,35 @@
         <i class="iconfont icon-sousuo move pos-rel"></i>
 
         <div class="pos-abs t-box flex">
-          <div class="text aa">首页</div>
-          <div class="text aa">新手入门</div>
-          <div class="text aa">API</div>
-          <div class="text aa">关于</div>
-          <div class="text aa">注册</div>
-          <div class="aa">登录</div>
+          <div class="text">首页</div>
+          <div class="text">新手入门</div>
+          <div class="text">API</div>
+          <div class="text">关于</div>
+          <div class="text">注册</div>
+          <div class="text">登录</div>
         </div>
       </div>
     </div>
 
+<div class='back-c flex-d al-center'>
+<div class="middle flex pos-rel">
+  <div>
+    <router-view></router-view>
+  </div>
+     <div>
+    <Srdlson></Srdlson>
+     </div>
+ 
+</div>
+</div>
+
+
     <div class="foot-box flex ju-center">
           <div class="sf-box">
            <div class="flex m-t2 al-center g-cl">
-               RSS
+              <div class="f-hover">RSS</div> 
                <div class="vae"></div>
-               源码地址
+               <div class="f-hover">源码地址</div>
                </div>
                <div class="g-cl">CNode社区为国内最专业的Node.js开源技术社区,致力于Node.js的技术研究。</div>
                <div class="flex fe-box pos-rel">
@@ -42,18 +55,23 @@
                </div>
                <div class="flex m-t1">
                       <div class="g-cl"> 新手搭建Node.js 服务器,推荐使用无需备案的</div>
-                      <div class="color">DigitalOcean(https://www.digitalocean.com/)</div>
+                      <div class="color f-hover">DigitalOcean(https://www.digitalocean.com/)</div>
                       </div>
           </div>
     </div>
+
+   
   </div>
 </template>
 
 <script>
+import Srdlson from '../../components/shaerd/Srdlson'
 export default {
   name: "",
   props: {},
-  components: {},
+  components: {
+   Srdlson
+  },
   data() {
     return {};
   },
@@ -65,6 +83,7 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+
 .box {
   width: 100%;
   height: 50px;
@@ -72,8 +91,9 @@ export default {
   cursor: pointer;
 }
 .img {
-  width: 160px;
+  width: 130px;
   height: 30px;
+  margin-right: 20px;
 }
 .b-box {
   width: 1400px;
@@ -104,12 +124,13 @@ export default {
 .text {
   margin-right: 30px;
 }
-.aa:hover {
+.text:hover {
   color: white;
 }
 .foot-box{
     width: 100%;
     height: 300px;
+    cursor: pointer;
    
 }
 .sf-box{
@@ -145,5 +166,17 @@ export default {
 }
 .g-cl{
     color: rgb(171,171,171);
+}
+.f-hover:hover{
+  color: rgb(0,98,169);
+}
+.back-c{
+  width: 100%;
+   background: rgb(225,225,225);
+}
+
+.middle{
+  width: 1400px;
+  
 }
 </style>

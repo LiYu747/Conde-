@@ -1,19 +1,16 @@
 <template>
  <div>
-      <div class="box m-t2">
-
-      </div>
+     错误的
  </div>
 </template>
 
 <script>
- 
  export default {
    name: '',
    props: {
    },
    components: {
-       
+
    },
    data () {
      return {
@@ -21,7 +18,7 @@
      }
    },
    methods: {
-           
+
    },
    mounted() {
 
@@ -36,9 +33,5 @@
 </script>
 
 <style scoped lang='scss'>
-.box{
-  width: 1075px;
-  height: 1000px;
-  background: darkgoldenrod;
-}
+
 </style>
