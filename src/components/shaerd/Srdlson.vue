@@ -3,7 +3,7 @@
       <div  class="box pos-abs m-t2">
        <el-card class="box-card">
    <div class=" fz-14">CNode：Node.js专业中文社区</div>
-             <div class=" fz-14 m-t1">您可以 登录 或 注册 , 也可以</div>
+             <div class=" fz-14 m-t1 flex">您可以 <div class="login" @click="login">登录</div>  或 <div class="login" @click="login">注册</div>  , 也可以</div>
                <el-button type="primary" style="margin-top:4px">通过 Git Hub 登录</el-button>
 </el-card>
             
@@ -86,7 +86,9 @@
      }
    },
    methods: {
-
+     login(){
+       this.$router.push('/Sign-in')
+     }
    },
    mounted() {
 
@@ -137,5 +139,8 @@
  .st-img{
    width: 180px;
    height: 60px;
+ }
+ .login:hover{
+ text-decoration: underline;
  }
 </style>

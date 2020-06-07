@@ -12,8 +12,8 @@
           <div class="text">API</div>
           <div class="text">关于</div>
           <div class="text">注册</div>
-          <div class="text" @click="add" v-if="user===''">登录</div>
-          <div v-else @click="out">退出</div>
+            <div class="text" @click="add" v-if="user===null">登录</div>
+           <div v-else @click="out">退出</div>
         </div>
       </div>
     </div>
@@ -73,27 +73,32 @@ export default {
   },
   data() {
     return {
-      user : ''
+      user : '',
+      sex : ''
     };
   },
   methods: {
      add(){
         this.$router.push('/Sign-in')
+        this.sex = this.user
       },
       out(){
-        this.user = ''
         this.$router.push('/')
+          localStorage.clear()
+          this.user=null
       }
   },
   mounted() {
-    this.user = ''
+   
      this.user = localStorage.getItem('name')
   
    
     
 
   },
-  watch: {},
+  watch: {
+    
+  },
   computed: {}
 };
 </script>
