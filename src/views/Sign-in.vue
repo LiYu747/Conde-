@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pos-rel">
      <el-card class="box-card pos-rel el__box__back ">
   <div slot="header" class="clearfix flex box ">
     <div class="text m-l1">主页</div>
@@ -11,24 +11,35 @@
 
      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
   <el-form-item label="用户名" prop="name">
-    <el-input v-model="ruleForm.name"></el-input>
+    <el-input v-model="ruleForm.name" class="ipt"></el-input>
   </el-form-item>
   <el-form-item label="密码" prop="password">
-    <el-input v-model="ruleForm.password" show-password></el-input>
+    <el-input v-model="ruleForm.password" show-password class="ipt"></el-input>
   </el-form-item>
   <el-form-item label="确认密码" prop="repwd">
-    <el-input v-model="ruleForm.repwd" show-password></el-input>
+    <el-input v-model="ruleForm.repwd" show-password class="ipt"></el-input>
   </el-form-item>
  
   <el-form-item>
     <el-button type="primary" @click="login">登录</el-button>
-    <el-button @click="resetForm('ruleForm')">通过 GitBup 登录</el-button>
+    <el-button>通过 GitBup 登录</el-button>
   </el-form-item>
+   
 </el-form>
+</el-card>
+   
 
+
+<el-card class="box-lcard pos-abs el__box__back">
+  <div slot="header" class="clearfix">
+    <div class="fz-14">关于</div>
+  </div>
+ 
+    <div>CNode：Node.js专业中文社区</div>
+  
 
 </el-card>
-
+ 
   </div>
 </template>
 
@@ -51,7 +62,8 @@ export default {
          ruleForm: {
           name: '',
           password:'',
-          repwd:''
+          repwd:'',
+         
         },
          rules: {
           name: [
@@ -73,12 +85,17 @@ export default {
         this.$refs.ruleForm.validate((valid) => {
           if (valid) {
             this.$message.success('登录成功');
+             localStorage.setItem('name',this.ruleForm.name);
+            this.$router.push('/');
+           
           } else {
           this.$message.error('用户名或密码错误');
             return false;
           }
         });
+        
       },
+     
      
     
   },
@@ -103,7 +120,7 @@ export default {
   }
 
   .box-card {
-    width: 1000px;
+    width: 600px;
     height: 300px;
     top: 50px;
     left: 150px;
@@ -115,5 +132,24 @@ export default {
   color: rgb(153, 153, 153);
   margin: 0 5px;
 }
-
+.ipt {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+}
+.tog{
+  left: 20px;
+  color: rgb(119,128,135);
+  
+}
+.tog:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.box-lcard{
+    width: 300px;
+    height: 250px;
+    right: 50px;
+    top: 50px;
+}
 </style>

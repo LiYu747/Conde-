@@ -1,10 +1,11 @@
 <template>
  <div>
-   详情页
+     
  </div>
 </template>
 
 <script>
+import axios from 'axios'
  export default {
    name: '',
    props: {
@@ -14,11 +15,19 @@
    },
    data () {
      return {
-
+       dat:null
      }
    },
    methods: {
+       getData(){
+         axios.get('https://cnodejs.org/api/v1/topics')
+         .then((res)=>{
+              this.dat = res.data
+         })
+         .catch((err)=>{
 
+         })
+       }
    },
    mounted() {
 

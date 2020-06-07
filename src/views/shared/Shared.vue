@@ -12,7 +12,8 @@
           <div class="text">API</div>
           <div class="text">关于</div>
           <div class="text">注册</div>
-          <div class="text">登录</div>
+          <div class="text" @click="add" v-if="user===''">登录</div>
+          <div v-else @click="out">退出</div>
         </div>
       </div>
     </div>
@@ -22,9 +23,7 @@
   <div>
     <router-view></router-view>
   </div>
-     <div>
-    <Srdlson></Srdlson>
-     </div>
+   
  
 </div>
 </div>
@@ -65,18 +64,35 @@
 </template>
 
 <script>
-import Srdlson from '../../components/shaerd/Srdlson'
+
 export default {
   name: "",
   props: {},
   components: {
-   Srdlson
+  
   },
   data() {
-    return {};
+    return {
+      user : ''
+    };
   },
-  methods: {},
-  mounted() {},
+  methods: {
+     add(){
+        this.$router.push('/Sign-in')
+      },
+      out(){
+        this.user = ''
+        this.$router.push('/')
+      }
+  },
+  mounted() {
+    this.user = ''
+     this.user = localStorage.getItem('name')
+  
+   
+    
+
+  },
   watch: {},
   computed: {}
 };
